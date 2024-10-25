@@ -25,6 +25,7 @@ int main(){
     omp_set_num_threads(4);
     #pragma omp parallel for
     for (i = 0; i < NRES; i++) {
+        #pragma omp atomic
         for (j = 0; j < NF; j++) {
             result[i] += F[NF-j-1] * A[i+j];
         }
