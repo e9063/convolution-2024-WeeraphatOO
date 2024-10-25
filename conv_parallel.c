@@ -11,7 +11,6 @@ int main(){
     int *F = malloc(sizeof(int) * NF);
     int NRES = NA - NF + 1;
     int *result = malloc(sizeof(int) * NRES);
-    memset(result, 0, sizeof(int) * NRES);
     for(int i = 0; i < NA; i++){
         scanf("%d", &A[i]);
     }
@@ -25,10 +24,11 @@ int main(){
     omp_set_num_threads(4);
     #pragma omp parallel for
     for (i = 0; i < NRES; i++) {
+        int tmp = 0;
         for (j = 0; j < NF; j++) {
-            #pragma omp critical
-            result[i] += F[NF-j-1] * A[i+j];
+            tmp += F[NF-j-1] * A[i+j];
         }
+        result[i] = tmp;
     }
 
     // print result

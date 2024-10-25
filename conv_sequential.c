@@ -22,9 +22,11 @@ int main(){
     // implement here
     int i, j;
     for (i = 0; i < NRES; i++) {
+        int tmp = 0;
         for (j = 0; j < NF; j++) {
-            result[i] += F[NF-j-1] * A[i+j];
+            tmp += F[NF-j-1] * A[i+j];
         }
+        result[i] = tmp;
     }
 
     // print result
