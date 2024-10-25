@@ -1,3 +1,5 @@
-Time taken for sequential computation: 167.430000 seconds
-Time taken for parallel computation: 74.907000 seconds
-Speedup: 2.235172
+For A Matrix length : 10000000
+And F Matrix length : 10000
+Time taken for sequential computation: 172.357000 seconds
+Time taken for parallel computation: 81.485000 seconds
+Speedup: 2.115199

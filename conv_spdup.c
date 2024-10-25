@@ -56,6 +56,8 @@ int main(){
     FILE *file = fopen("speedup_result.txt", "w");
 
     //writing file
+    fprintf(file,"For A Matrix length : %d\n", NA);
+    fprintf(file,"And F Matrix length : %d\n", NF);
     fprintf(file, "Time taken for sequential computation: %f seconds\n", time_seq);
     fprintf(file, "Time taken for parallel computation: %f seconds\n", time_par);
     fprintf(file, "Speedup: %f\n", speedup);
