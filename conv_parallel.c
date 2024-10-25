@@ -26,7 +26,7 @@ int main(){
     #pragma omp parallel for
     for (i = 0; i < NRES; i++) {
         for (j = 0; j < NF; j++) {
-            #pragma omp atomic
+            #pragma omp critical
             result[i] += F[NF-j-1] * A[i+j];
         }
     }
