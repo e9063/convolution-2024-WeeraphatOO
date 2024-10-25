@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<string.h>
 
 int main(){
     // ---- input and malloc A, F, RESULT ----
@@ -10,7 +9,6 @@ int main(){
     int *F = malloc(sizeof(int) * NF);
     int NRES = NA - NF + 1;
     int *result = malloc(sizeof(int) * NRES);
-    memset(result, 0, sizeof(int) * NRES);
     for(int i = 0; i < NA; i++){
         scanf("%d", &A[i]);
     }
