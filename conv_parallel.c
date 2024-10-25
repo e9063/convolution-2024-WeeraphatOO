@@ -22,7 +22,7 @@ int main(){
     // implement here
     int i, j;
     omp_set_num_threads(4);
-    #pragma omp parallel for
+    #pragma omp parallel for schedule(static)
     for (i = 0; i < NRES; i++) {
         int tmp = 0;
         for (j = 0; j < NF; j++) {
