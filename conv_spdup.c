@@ -5,7 +5,7 @@
 //For writing output to speedup_result.txt
 int main(){
     // ---- input and malloc A, F, RESULT ----
-    FILE *inputFile = fopen("input_billion.txt", "r");
+    FILE *inputFile = fopen("input_10m.txt", "r");
     int NA, NF;
     fscanf(inputFile,"%d %d", &NA, &NF);
     int *A = malloc(sizeof(int) * NA);
