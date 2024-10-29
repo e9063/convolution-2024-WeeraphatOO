@@ -18,17 +18,16 @@ int main(){
     // ---- end input and malloc----
 
     // implement here
-    int i, j;
-    for (i = 0; i < NRES; i++) {
+    for (int i = 0; i < NRES; i++) {
         int tmp = 0;
-        for (j = 0; j < NF; j++) {
+        for (int j = 0; j < NF; j++) {
             tmp += F[NF-j-1] * A[i+j];
         }
         result[i] = tmp;
     }
 
     // print result
-    for (i = 0; i < NRES; i++) {
+    for (int i = 0; i < NRES; i++) {
         printf("%d\n",result[i]);
     }
 
