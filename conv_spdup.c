@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<omp.h>
+#include <sys/time.h>
 
 //For writing output to speedup_result.txt
 int main(){
@@ -24,7 +25,8 @@ int main(){
 
     // implement here
     //--sequential calculation--
-    double start_seq = omp_get_wtime();
+    struct timeval start, end;
+    gettimeofday(&start, NULL);
     int i, j;
     for (i = 0; i < NRES; i++) {
         int tmp = 0;
@@ -33,11 +35,11 @@ int main(){
         }
         result_seq[i] = tmp;
     }
-    double end_seq = omp_get_wtime();
-    double time_seq = end_seq - start_seq;
+    gettimeofday(&end, NULL);
+    double time_seq = (end.tv_sec - start.tv_sec) + (end.tv_usec - start.tv_usec) / 1e6;
 
     //--parallel calculation--
-    double start_par = omp_get_wtime();
+    gettimeofday(&start, NULL);
     #pragma omp parallel for schedule(static) num_threads(4)
     for (int i = 0; i < NRES; i++) {
         int tmp = 0;
@@ -46,8 +48,8 @@ int main(){
         }
         result_par[i] = tmp;
     }
-    double end_par = omp_get_wtime();
-    double time_par = end_par - start_par;
+    gettimeofday(&end, NULL);
+    double time_par = (end.tv_sec - start.tv_sec) + (end.tv_usec - start.tv_usec) / 1e6;
 
     // speedup
     double speedup = time_seq / time_par;
